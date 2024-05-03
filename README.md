@@ -1,4 +1,5 @@
-<img src="https://s3.ap-southeast-2.amazonaws.com/quantal.ai/quantalAI_logo_dev.png" width=550>
+<img src="https://s3.ap-southeast-2.amazonaws.com/quantal.ai/quantalAI_logo_dev.png" width=225>
+
 **Confidential**
 © 2024 QuantalAI PTY LTD. All Rights Reserved.
 ---
