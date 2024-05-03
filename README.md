@@ -1,9 +1,12 @@
-<img src="https://s3.ap-southeast-2.amazonaws.com/quantal.ai/quantalAI_baselogo_new_small.png" width=225>
-**Confidential**.
+<img src="https://s3.ap-southeast-2.amazonaws.com/quantal.ai/quantalAI_logo_dev.png" width=550>
+**Confidential**
 © 2024 QuantalAI PTY LTD. All Rights Reserved.
+---
 
 # Maven Technologies Website
 ---
+Astro static website with some React dynamic components. Will be deployed as a static site hosted on AWS S3 with a CloudFront distribution.
+
 
 ### Deployment
 **Dev**
