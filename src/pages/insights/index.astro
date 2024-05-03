@@ -1,0 +1,15 @@
+---
+import config from "../../config/config.json";
+import InsightsLayout from "../../layouts/InsightsLayout.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate } from "../../lib/utils/sortFunctions";
+
+const insights = await getSinglePage("insights");
+const sortedPosts = sortByDate(insights);
+// console.log(sortedPosts);
+---
+
+<MainLayout title={"Industry Insights"}>
+  <InsightsLayout insights={sortedPosts} />
+</MainLayout>

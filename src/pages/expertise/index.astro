@@ -1,0 +1,24 @@
+---
+import config from "../../config/config.json";
+import Industries from "../../layouts/Industries.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import Pagination from "../../layouts/components/Pagination.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate } from "../../lib/utils/sortFunctions";
+import { markdownify } from "../../lib/utils/textConverter";
+
+const industries = await getSinglePage("industries");
+const sortedPosts = sortByDate(industries);
+const totalPages = Math.ceil(industries.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+---
+
+<MainLayout title={"Industries"}>
+  <section class="section">
+    <div class="container text-center">
+      <h1 set:text={markdownify("Industries")} class="page-heading h2" />
+      <Industries industries={currentPosts} />
+      <Pagination section={"industries"} currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+</MainLayout>

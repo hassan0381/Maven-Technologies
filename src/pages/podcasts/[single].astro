@@ -1,0 +1,25 @@
+---
+import PodcastsSingle from "../../layouts/PodcastsSingle.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+
+
+export async function getStaticPaths() {
+  const podcasts = await getSinglePage("podcasts");  
+
+  const paths = podcasts.map((podcast:any) => (
+    {
+      params: { single: podcast.slug },
+      props: { podcast }
+    }));
+  // console.log(paths)
+  return paths;
+}
+
+const { podcast } = Astro.props;
+const { title, category, meta_title, description, image } = podcast.data;
+---
+
+<MainLayout title={title} key_words={podcast.data.key_words}>
+  <PodcastsSingle podcast={podcast} />
+</MainLayout>

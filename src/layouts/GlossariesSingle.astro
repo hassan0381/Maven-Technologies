@@ -1,0 +1,118 @@
+---
+import ChevronRight from "../icons/chevron-right.jsx";
+import { markdownify } from "../lib/utils/textConverter";
+import "../assets/main.css";
+
+
+const { glossary } = Astro.props;
+// console.log(glossary);
+const { 
+  id, draft, name, category, description, 
+  key_words, content, related_articles_heading,
+  related_articles_subheading, related_articles_description,
+  related_articles_category, related_articles_items} = glossary.data;
+
+
+const { Content } = await glossary.render();
+const banner_style = {
+    backgroundImage: "url('/laptop_keyboard_typing.jpg')",
+    minHeight: "30vh",
+    width: "100%",            
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+const category_name = "Knowledge Base";
+const category_url = "/glossary";
+const title = "Glossary";
+const heading = "Mavens Glossary";
+const sub_heading_display = "Knowledge Base";
+// const category_url = "/"+category;
+// const category_name =category[0].toUpperCase()+category.slice(1);
+// const sub_heading_display = sub_heading.toUpperCase()
+// const featured_article1_link = "articles"+featured_article1_slug;
+// const featured_article2_link = "articles"+featured_article2_slug;
+// const expertise_table_colours = ["#7800ff","#8c2bfa", "#a14ffe", "#b679fb", "#d3acff"];
+// const expertise_subheading_display = expertise_subheading.toUpperCase();
+// const casestudies_subheading_display = case_studies_subheading.toUpperCase();
+---
+
+<section class="section">  
+  <div class="detailedpage_banner_topper">    
+    <div class="detailedpage_banner_topper_categoryheading">
+      <a href={category_url}>{category_name}</a>
+    </div>
+    <div class="detailedpage_banner_topper_mainheading">
+      <p>{title}</p>
+    </div>
+  </div>
+  <div style={banner_style} >
+    <div class="generalpage_banner_heading_container">
+      <div class="detailedpage_banner_headingbackground">
+        <div class="detailedpage_banner_subheading">
+          <p>{sub_heading_display.toUpperCase()}</p>
+        </div>
+        <div class="detailedpage_banner_heading">
+          <h1>{name}</h1>
+        </div>
+      </div>
+    </div>    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="detailedpage_valueprop">    
+      <!-- <p>{markdownify(content)}</p> -->
+      <p>{content}</p>
+   </div>
+</section>
+
+<section class="section">
+  <div class="detailedpage_recentnews_container">
+    <div class="detailedpage_recentnews_container">
+      <div class="detailedpage_recentnews_subheading">
+        <p>{related_articles_subheading}</p>
+      </div>  
+      <div class="detailedpage_recentnews_heading">
+        <h2>{related_articles_heading}</h2>
+      </div> 
+      <div class="detailedpage_recentnews_description">
+        <p>{related_articles_description}</p>
+      </div>
+    </div>
+  </div>
+  <div class="detailedpage_recentnews_items_container">
+    <div>
+      {
+        related_articles_items.map((item:any, index:any) => (          
+          <a href={"articles/"+ item.related_article_slug}>
+            <div style={{
+              backgroundImage:"url('"+item.related_article_image+"')" ,
+              width: "40vmin",
+              height: "40vmin",
+              display: "inline-block",
+              margin: "3vmin",
+              padding: "2vmin",
+              border: "1px solid #cccccc",
+              borderRadius: "2vmin"
+            }}>
+              <div class="detailedpage_recentnewsitem_subheading">
+                <p>{item.related_article_subheading}</p>
+              </div>
+              <div class="detailedpage_recentnewsitem_heading">
+                <p>{item.related_article_title}</p>
+              </div>
+              <div class="detailedpage_recentnewssitem_button">
+                <p>
+                  {item.related_article_buttontext}
+                  <ChevronRight />
+                </p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>  
+  </div>  
+</section>
+

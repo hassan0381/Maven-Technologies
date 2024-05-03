@@ -1,0 +1,164 @@
+---
+import config from "../config/config.json";
+import { plainify } from "../lib/utils/textConverter";
+import Navbar from '../components/navbar.tsx'
+import NavTop from '../components/navtop.tsx'
+import Footer from '../components/footer.tsx'
+
+
+
+export interface Props {
+  title?: string;
+  key_words?: any;
+  meta_title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  canonical?: string;
+  data?: any;
+}
+
+const { title, meta_title, key_words, description, image, noindex, canonical, data } =
+  Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+
+<html lang="en">
+  <!-- <head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Maven Technologies" />
+    <meta title = {title}/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <title>{title}</title>
+  </head> -->
+  <head>
+    <!-- favicon -->
+    <link rel="shortcut icon" href={config.site.favicon} />
+    <!-- theme meta -->    
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#fff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#000"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- google font css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href={`https://fonts.googleapis.com/css2?family=${pf}${
+        sf ? "&family=" + sf : ""
+      }&display=swap`}
+      rel="stylesheet"
+    /> -->
+
+    <!-- responsive meta -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+
+    <!-- title -->
+    <title>
+      {plainify(meta_title ? meta_title : title ? title+" | "+ config.site.title : config.site.title)}
+    </title>
+
+    <!-- canonical url -->
+    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+
+    <!-- noindex robots -->
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- meta-description -->
+    <meta
+      name="description"
+      content={plainify(
+        description ? description : config.metadata.meta_description
+      )}
+    />
+
+    <!-- author from config.json -->
+    <meta name="author" content={config.metadata.meta_author} />
+
+    <!-- og-title -->
+    <meta
+      property="og:title"
+      content={plainify(
+        meta_title ? meta_title : title ? title : config.site.title
+      )}
+    />
+
+    <!-- og-description -->
+    <meta
+      property="og:description"
+      content={plainify(
+        description ? description : config.metadata.meta_description
+      )}
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
+    />
+
+    <!-- twitter-title -->
+    <meta
+      name="twitter:title"
+      content={plainify(
+        meta_title ? meta_title : title ? title : config.site.title
+      )}
+    />
+
+    <!-- twitter-description -->
+    <meta
+      name="twitter:description"
+      content={plainify(
+        description ? description : config.metadata.meta_description
+      )}
+    />
+
+    <!-- og-image -->
+    <meta
+      property="og:image"
+      content={`${config.site.base_url}${
+        image ? image : config.metadata.meta_image
+      }`}
+    />
+
+    <!-- twitter-image -->
+    <meta
+      name="twitter:image"
+      content={`${config.site.base_url}${
+        image ? image : config.metadata.meta_image
+      }`}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <main class='bg-main bg-no-repeat bg-cover bg-center'>
+      <NavTop client:load/>
+      <Navbar client:load/>
+      <slot/>
+      <Footer />
+      
+    </main>
+    <p class="copyright">
+        Copyright © {currentYear} | Maven Technologies
+    </p>
+  </body>
+</html>
+
+

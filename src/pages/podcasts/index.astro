@@ -1,0 +1,15 @@
+---
+import config from "../../config/config.json";
+import PodcastsLayout from "../../layouts/PodcastsLayout.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate } from "../../lib/utils/sortFunctions";
+
+const podcasts = await getSinglePage("podcasts");
+const sortedPosts = sortByDate(podcasts);
+// console.log(sortedPosts);
+---
+
+<MainLayout title={"Podcasts"}>
+  <PodcastsLayout podcasts={sortedPosts} />
+</MainLayout>

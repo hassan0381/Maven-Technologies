@@ -1,0 +1,15 @@
+---
+import config from "../../config/config.json";
+import PulseLayout from "../../layouts/PulseLayout.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate } from "../../lib/utils/sortFunctions";
+
+const pulses = await getSinglePage("pulse");
+const sortedPosts = sortByDate(pulses);
+// console.log(sortedPosts);
+---
+
+<MainLayout title={"Pulse Articles"}>
+  <PulseLayout pulses={sortedPosts} />
+</MainLayout>

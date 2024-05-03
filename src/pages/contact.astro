@@ -1,0 +1,59 @@
+---
+import MainLayout from "../layouts/main-layout.astro";
+import Button from "../components/button.tsx";
+
+
+const banner_style = {
+    backgroundImage:
+    "url('/banner.jpg')",
+    minHeight: "80vh",
+    width: "100%",            
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+
+---
+
+<MainLayout title="Contact ">
+  <section class="section">  
+    <div class="detailedpage_banner_topper">
+      <div class="detailedpage_banner_topper_categoryheading">
+        <a href="/">COMMUNICATE</a>
+      </div>
+      <div class="detailedpage_banner_topper_mainheading">
+        Contact
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-4 detailedpage_banner_container">
+		  <div class="col-span-8">
+			  <div style={banner_style} />
+		  </div>
+		  <div class="col-span-4">
+			  <div class="detailedpage_banner_headingbackground">
+			    <div class="detailedpage_banner_subheading">
+            SALTSPACE COWORKING
+          </div>
+          <div class="detailedpage_banner_heading">
+            <h1>Reach out to us</h1>
+          </div>
+          <div class="detailedpage_banner_valueprop">
+            We love hearing from you. Whether you have a question about our services, need help with a booking, or just want to say hello, we’re here to help.
+          </div>
+          <div class="footer_contact_form" >
+            <form class="w-full grid grid-cols-2 gap-x-10 gap-y-[30px]">              
+              <input type="text" name="name" placeholder="Name"
+                class="footer_contact_form_input"/>                            
+              <input type="email" name="email" placeholder="Email"
+                class="footer_contact_form_input"/>              
+              <textarea name="message" rows={3} placeholder="Tell us what you're interested in..."
+                class="footer_contact_form_textarea col-span-2"/>              
+              <div class="w-full flex justify-end col-span-2">
+                <Button text="Submit" type="submit" color="#ffffff" variant="primary"/>
+              </div>
+            </form>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </section>
+</MainLayout>

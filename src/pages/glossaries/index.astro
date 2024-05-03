@@ -1,0 +1,61 @@
+---
+import config from "../../config/config.json";
+import Glossaries from "../../layouts/Glossaries.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate, createAlphabeticalDict } from "../../lib/utils/sortFunctions";
+import { markdownify } from "../../lib/utils/textConverter";
+
+const glossary = await getSinglePage("glossaries");
+const sortedPosts = sortByDate(glossary);
+const totalPages = Math.ceil(glossary.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+const alphabeticalDict = createAlphabeticalDict(sortedPosts);
+const category_name = "Knowledge Base";
+const category_url = "/glossary";
+const title = "Glossary";
+const banner_style = {
+    backgroundImage:
+        "url('/laptop_keyboard_typing.jpg')",
+    minHeight: "35vh",
+    width: "100%",            
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+const heading = "Mavens Glossary";
+const sub_heading_display = "Knowledge Base";
+const value_prop = 'In a digital-focused market, learn how to "become digital," with Cognizant`s utility-based content to gain knowledge of industry-accepted, general terms related to our business.'
+---
+
+<MainLayout title={"Glossary"}>
+  <section class="section">  
+    <div class="detailedpage_banner_topper">
+      <div class="detailedpage_banner_topper_categoryheading">
+        <a href={category_url}>{category_name}</a>
+      </div>
+      <div class="detailedpage_banner_topper_mainheading">
+        <p>{title}</p>
+      </div>
+    </div>
+    <div style={banner_style} >
+      <div class="generalpage_banner_heading_container">
+        <div class="detailedpage_banner_headingbackground">
+          <div class="detailedpage_banner_subheading">
+            <p>{sub_heading_display.toUpperCase()}</p>
+          </div>
+          <div class="detailedpage_banner_heading">
+            <h1>{heading}</h1>
+          </div>
+          <div class="detailedpage_banner_valueprop">
+            <p>{value_prop}</p>
+        </div>
+      </div>      
+    </div>
+  </section>
+  <section class="section">
+    <div class="container text-center">
+      <h1 set:text={markdownify("Services")} class="page-heading h2" />
+      <Glossaries glossaries={currentPosts} alphabeticalDict={alphabeticalDict}/>      
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,15 @@
+---
+import config from "../../config/config.json";
+import Industries from "../../layouts/Industries.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate } from "../../lib/utils/sortFunctions";
+import { markdownify } from "../../lib/utils/textConverter";
+
+const industries = await getSinglePage("industries");
+const sortedPosts = sortByDate(industries);
+---
+
+<MainLayout title={"Industries"}>  
+  <Industries industries={sortedPosts} />
+</MainLayout>

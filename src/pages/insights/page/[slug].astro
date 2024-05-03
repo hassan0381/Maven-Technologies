@@ -1,0 +1,48 @@
+---
+import config from "../../../config/config.json";
+import Glossaries from "../../../layouts/Glossaries.astro";
+import MainLayout from "../../../layouts/main-layout.astro";
+import Pagination from "../../../layouts/components/Pagination.astro";
+import { getSinglePage } from "../../../lib/contentParser.astro";
+import { sortByDate, createAlphabeticalDict } from "../../../lib/utils/sortFunctions";
+import { markdownify } from "../../../lib/utils/textConverter";
+
+export async function getStaticPaths() {
+  const glossaries = await getSinglePage("glossaries");
+  const totalPages = Math.ceil(glossaries.length / config.settings.pagination);
+  const paths = [];
+
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({
+      params: {
+        slug: (i + 1).toString(),
+      },
+    });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+const glossaries = await getSinglePage("glossaries");
+const alphabeticalDict = createAlphabeticalDict(glossaries);
+const sortedPosts = sortByDate(glossaries);
+const totalPages = Math.ceil(glossaries.length / config.settings.pagination);
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPost = currentPage * config.settings.pagination;
+const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+---
+
+<MainLayout title={"Glossary"}>
+  <section class="section">
+    <div class="container text-center">
+      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
+      <Glossaries glossaries={currentPosts} alphabeticalDict={alphabeticalDict} />
+      <Pagination
+        section={"authors"}
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
+    </div>
+  </section>
+</MainLayout>

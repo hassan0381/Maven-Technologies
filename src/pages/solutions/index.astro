@@ -1,0 +1,24 @@
+---
+import config from "../../config/config.json";
+import Solutions from "../../layouts/Solutions.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import Pagination from "../../layouts/components/Pagination.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate } from "../../lib/utils/sortFunctions";
+import { markdownify } from "../../lib/utils/textConverter";
+
+const solutions = await getSinglePage("solutions");
+const sortedPosts = sortByDate(solutions);
+const totalPages = Math.ceil(solutions.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+---
+
+<MainLayout title={"Solutions"}>
+  <section class="section">
+    <div class="container text-center">
+      <h1 set:text={markdownify("Solutions")} class="page-heading h2" />
+      <Solutions solutions={currentPosts} />
+      <Pagination section={"solutions"} currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+</MainLayout>

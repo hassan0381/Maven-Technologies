@@ -1,0 +1,249 @@
+---
+import CapabilitiesItem from "../components/capabilities_item"
+import Button from '../components/button.tsx'
+import FAQ_Item from "../components/faq_item";
+import "../assets/main.css";
+
+
+const { expertise } = Astro.props;
+// console.log(industry);
+const { 
+  id,draft,category,sub_category,name,description,
+  featured_benefit_title,featured_benefit_description,
+  slug,key_words,heroimage,heading,sub_heading,value_prop,
+  solutions_heading,solutions_subheading,solutions_description,
+  solutions_slug,capabilities_heading,capabilities_items,
+  videosection_videotitle,videosection_videourl,videosection_heroimage,
+  related_articles_heading,related_articles_subheading,
+  related_articles_description,related_articles_category,
+  related_articles_items, faqs
+} = expertise.data;
+
+// console.log(expertise.data);
+
+const { Content } = await expertise.render();
+const banner_style = {
+    backgroundImage:
+        "url('"+heroimage+"')",
+    minHeight: "65vh",
+    width: "100%",
+    paddingBottom: "5vmin",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+const video_section_style = {
+  backgroundImage:
+        "url('"+videosection_heroimage+"')",
+    width: "100%",       
+    minHeight: "35vh",
+    padding: "5vmin",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat"
+};
+const alt_section_style = {
+    backgroundImage:
+        "url('/amplifying-colorful-sanger-sequencing.jpg')",
+    minHeight: "35vh",
+    padding: "5vmin",
+    width: "100%",
+    paddingBottom: "5vmin",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+const category_url = "/"+category;
+const category_name =category[0].toUpperCase()+category.slice(1);
+const sub_heading_display = sub_heading.toUpperCase();
+var featured_article = false;
+if(related_articles_items.length > 0){
+  featured_article = true;
+  var featured_article_image = related_articles_items[0].related_article_image;
+  var featured_article_heading = related_articles_items[0].related_article_title;
+  var featured_article_description = related_articles_items[0].related_article_description;
+  var featured_article_slug = related_articles_items[0].related_article_slug;
+}
+for(var i=0; i<capabilities_items.length; i++){
+  capabilities_items[i].indx = i;
+}
+
+
+---
+<div>
+  <section class="section">  
+    <div class="detailedpage_banner_topper">    
+      <div class="detailedpage_banner_topper_categoryheading">
+        <a href={category_url}>{category_name.toUpperCase()}</a>
+      </div>
+      <div class="detailedpage_banner_topper_mainheading">
+        <p>{name}</p>
+      </div>
+    </div>
+    <div style={banner_style} >
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-1"/>
+        <div class="col-span-10">
+          <div class="detailedpage_banner_heading_container">
+            <div class="detailedpage_banner_headingbackground">
+              <div class="detailedpage_banner_subheading">
+                <p>{sub_heading_display}</p>
+              </div>
+              <div class="detailedpage_banner_heading">
+                <h1>{heading}</h1>
+              </div>
+            </div>
+          </div>              
+          <div class="grid grid-cols-3 gap-4 detailedpage_banner_featuredarticle">
+            <div class="detailedpage_banner_featuredarticle_image col-span-1">
+              <img src={featured_article_image} alt={featured_article_heading}>
+            </div>
+            <div class="detailedpage_banner_featuredarticle_text col-span-2">
+              <div class="grid grid-cols-6 gap-2">
+                <div class="col-span-6">
+                  <h3>{featured_article_heading}</h3>
+                </div>
+                <div class="col-span-6">
+                  <p>{featured_article_description}</p>
+                </div>
+                <div class="col-span-4"/>
+                <div class="col-span-2">
+                  <Button text="Read More" href={"../insights/"} color="#505050"/>
+                </div>
+              </div>              
+            </div>        
+          </div>
+        </div>
+        <div class="col-span-1"/>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="detailedpage_valueprop">    
+        <p>{value_prop}</p>    
+    </div>
+  </section>
+  <section class="section">
+    <div class="grid grid-cols-5 gap-4 faqspage_itemscontainer">
+      <div class="col-span-1"/>
+      <div class="col-span-1 ">
+        {
+        faqs.map((item:any, index:any) => (
+          <FAQ_Item 
+            client:load
+            question={item.question_title} 
+            sub_title={item.sub_title} 
+            short_answer={item.question_shortanswer} 
+            long_answer={item.question_answer} 
+            slug={item.slug} 
+            image={item.image} />
+        ))
+        }
+    
+      </div>
+      <div class="col-span-1"/>
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-1"/>    
+      <div class="expertisepage_capabilities_container col-span-10">
+        <div class="">
+          <div class="detailedpage_expertise_subheading">
+            <p>WORK WITH MAVENS</p>
+          </div>  
+          <div class="expertisepage_capabilities_heading">
+            <h2>{capabilities_heading}</h2>
+          </div>  
+          {capabilities_items.map((item:any, index:any) => (            
+            <CapabilitiesItem client:load {...item} />
+          ))
+          }
+        </div>
+      </div>
+      <div class="col-span-1"/>
+    </div>
+  </section>
+  <section class="section">
+    <div class="grid grid-cols-12 gap-1" style={alt_section_style}>
+      <div class="col-span-1"/>
+      <div class="col-span-10 gap-1 expertisepage_featuredarticle_container">
+        <div class="grid grid-cols-10 gap-1">
+          <div class="expertisepage_featuredarticle_image col-span-3">
+            <img src={featured_article_image} alt={featured_article_heading}>
+          </div>          
+          <div class="expertisepage_featuredarticle_text col-span-6">
+            <div class="grid grid-cols-6 gap-2">
+              <div class="col-span-6 detailedpage_solutions_subheading">
+                <p>{solutions_subheading.toUpperCase()}</p>
+              </div>  
+              <div class="col-span-6 detailedpage_solutions_heading">
+                <h2>{solutions_heading}</h2>
+              </div>
+              <div class="col-span-6" style={{paddingLeft:"2.5vmin", minHeight:"7.5vh"}}>
+                <p>{solutions_description}</p>
+              </div>
+              
+              <div class="col-span-2 ">
+                <Button text="Read More" href={"../solutions/"+ solutions_slug} color="#505050"/>                
+              </div>
+              <div class="col-span-4"/>
+            </div>
+          </div>
+          </div>        
+        </div>
+      </div>
+      <div class="col-span-1"/>        
+    </div>    
+  </section>
+  <section class="section">
+    <hr class="section_break"/>
+    <div class="detailedpage_recentnews_container">
+      <div class="detailedpage_recentnews_container">
+        <div class="detailedpage_recentnews_subheading">
+          <p>{related_articles_subheading}</p>
+        </div>  
+        <div class="detailedpage_recentnews_heading">
+          <h2>{related_articles_heading}</h2>
+        </div> 
+        <div class="detailedpage_recentnews_description">
+          <p>{related_articles_description}</p>
+        </div>
+      </div>
+    </div>
+    <div class="detailedpage_recentnews_items_container">
+      <div>
+        {
+          related_articles_items.map((item:any, index:any) => (          
+            <a href={"../pulse/"+ item.related_article_slug}>
+              <div class="grid grid-cols-6 gap-2 detailedpage_recentnewsitem_container">
+                <div class="col-span-6 detailedpage_recentnewsitem_subheading">
+                  {item.related_article_subheading.toUpperCase()}
+                </div>
+                <div class="col-span-6 detailedpage_recentnewsitem_image">
+                  <img src={item.related_article_image} />                  
+                </div>                
+                <div class="col-span-6 detailedpage_recentnewsitem_heading">
+                  {item.related_article_title}
+                </div>
+                <div class="col-span-6">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="col-span-1"/>
+                    <div class="col-span-1">
+                      <Button text={item.related_article_buttontext} href={"../pulse/"+item.related_article_slug} color="#505050"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>  
+    </div>  
+  </section>
+
+</div>
+
+

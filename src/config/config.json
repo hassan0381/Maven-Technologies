@@ -1,0 +1,35 @@
+{
+  "site": {
+    "title": "Maven Technologies | Solutions for an AI World",
+    "base_url": "https://workwithmavens.io/",
+    "base_path": "/",
+    "trailing_slash": true,
+    "favicon": "/favicon.ico",
+    "logo": "/images/logo.png",
+    "logo_width": "200",
+    "logo_height": "34",
+    "logo_text": "Maven Technologies"
+  },
+
+  "settings": {
+    "pagination": 5,
+    "summary_length": 100
+  },
+
+  "metadata": {
+    "meta_author": "Maven Technologies",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Unlocking productivity through modern solutions."
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2024 Maven Technologies"
+  },
+
+  "contactinfo": {
+    "address": "P.O. Box 470, Fortitude Valley, QLD, 4006, Australia",
+    "email": "hello@workwithmavens.io",
+    "phone": "1300 440 275"
+  }
+}

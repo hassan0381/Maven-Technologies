@@ -1,0 +1,24 @@
+---
+import InsightsSingle from "../../layouts/InsightsSingle.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+
+export async function getStaticPaths() {
+  const insights = await getSinglePage("insights");  
+
+  const paths = insights.map((insight:any) => (
+    {
+      params: { single: insight.slug },
+      props: { insight }
+    }));
+  // console.log(paths)
+  return paths;
+}
+
+const { insight } = Astro.props;
+const { title, category, meta_title, description, image } = insight.data;
+---
+
+<MainLayout title={title} key_words={insight.data.key_words}>
+  <InsightsSingle insight={insight} />
+</MainLayout>

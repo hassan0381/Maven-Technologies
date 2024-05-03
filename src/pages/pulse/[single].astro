@@ -1,0 +1,24 @@
+---
+import PulseSingle from "../../layouts/PulseSingle.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+
+export async function getStaticPaths() {
+  const pulses = await getSinglePage("pulse");  
+
+  const paths = pulses.map((pulse:any) => (
+    {
+      params: { single: pulse.slug },
+      props: { pulse }
+    }));
+  // console.log(paths)
+  return paths;
+}
+
+const { pulse } = Astro.props;
+const { title, category, meta_title, description, image } = pulse.data;
+---
+
+<MainLayout title={title} key_words={pulse.data.key_words}>
+  <PulseSingle pulse={pulse} />
+</MainLayout>

@@ -1,0 +1,25 @@
+---
+import ExpertiseSingle from "../../layouts/ExpertiseSingle.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+
+export async function getStaticPaths() {
+  const expertises = await getSinglePage("expertise");  
+
+  const paths = expertises.map((expertise:any) => (
+    {
+      params: { single: expertise.slug },
+      props: { expertise }
+    }));
+  // console.log(paths)
+  return paths;
+}
+
+const { expertise } = Astro.props;
+const { title, category, meta_title, description, image } = expertise.data;
+// console.log(expertise)
+---
+
+<MainLayout title={title} key_words={expertise.data.key_words}>
+  <ExpertiseSingle expertise={expertise} />
+</MainLayout>

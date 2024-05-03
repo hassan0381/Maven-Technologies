@@ -1,0 +1,189 @@
+---
+import { markdownify } from "../lib/utils/textConverter";
+import Button from '../components/button.tsx'
+import "../assets/main.css";
+
+
+const videosection_heroimage = '/young-man-communicating-with-a-customer-using-a-ph.jpg';
+const videosection_videotitle = 'What are Large Language Models (LLMs)?';
+const videosection_videourl = 'https://www.youtube.com/embed/iR2O2GPbB0E';
+const videosection_description = "Learn about Large Language Models (LLMs), a powerful neural network that enables computers to process and generate language better than ever before. Dale and Nikita share how LLMs work and how you can interact with them via prompts."
+const video_section_style = {
+  backgroundImage:
+        "url('"+videosection_heroimage+"')",
+    width: "100%",       
+    minHeight: "35vh",
+    padding: "5vmin",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat"
+};
+const case_studies_heading = "Case Studies"
+const case_studies_subheading = "Learn from Others"
+const case_studies_description = "Use these examples to find the best way forward for you and your project."
+const case_studies_category = "Knowledge"
+const case_studies_items = [
+	{
+		"case_study_title": "Streamlining Warehouse Operations with Robotics",
+		"case_study_subheading": "Results",
+		"case_study_image": "/warehouse-in-logistic-center-with-automated-guided.jpg",
+		"case_study_buttontext": "Learn More",
+		"case_study_slug": "streamlining-operations-for-luxury-car-maker"
+	},
+	{
+		"case_study_title": "Customer tracking metrics lead to increased 4th Qtr sales",
+		"case_study_subheading": "Results",
+		"case_study_image": "/young-woman-in-a-clothing-store-chooses-new-jeans.jpg",
+		"case_study_buttontext": "Learn More",
+		"case_study_slug": "digitizing-processes-for-global-automaker"
+	},
+	{
+		"case_study_title": "E-mobility Solutions for EV Manufacturer",
+		"case_study_subheading": "Results",
+		"case_study_image": "/interior-dashboard-with-a-modern-interface-design.jpg",
+		"case_study_buttontext": "Learn More",
+		"case_study_slug": "e-mobility-solutions-for-ev-manufacturer"
+  }
+]
+const heading = "Industry Insights"
+const sub_heading_display = "IN THE KNOW"
+const banner_style = {
+    backgroundImage:
+        "url(/touchscreen_hand_rainbow.jpg)",
+    minHeight: "40vh",
+    width: "100%",            
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+
+const { podcasts } = Astro.props;
+
+
+---
+
+<div>
+  <section class="section">  
+    <div class="detailedpage_banner_topper">
+      <div class="detailedpage_banner_topper_categoryheading">
+        <a href="/insights">INSIGHTS</a>
+      </div>
+      <div class="detailedpage_banner_topper_mainheading">
+        Podcast Episodes
+      </div>
+    </div>
+    <div style={banner_style} >
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-1"/>
+        <div class="col-span-10">
+          <div class="detailedpage_banner_heading_container">
+            <div class="detailedpage_banner_headingbackground">
+              <div class="detailedpage_banner_subheading">
+                <p>{sub_heading_display}</p>
+              </div>
+              <div class="detailedpage_banner_heading">
+                <h1>{heading}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="content mb-16 text-left">      
+      <div class="contentindex_page_itemcontainer">
+        {
+          podcasts.map((item:any, index:any) => (
+            <a href={"podcasts/"+ item.data.related_article_slug}>
+              <div class="grid grid-cols-6 gap-2 detailedpage_recentnewsitem_container">
+                <div class="col-span-6 detailedpage_recentnewsitem_subheading">
+                  {item.data.category.toUpperCase()}
+                </div>
+                <div class="col-span-6 detailedpage_recentnewsitem_image">
+                  <img src={item.data.heroimage} />                  
+                </div>                
+                <div class="col-span-6 detailedpage_recentnewsitem_heading">
+                  {item.data.heading}
+                </div>
+                <div class="col-span-6">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="col-span-1"/>
+                    <div class="col-span-1">
+                      <Button text={item.data.buttontext} href={"../podcasts/"+item.slug} color="#505050"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>      
+    </div>
+  </section>
+  
+  <section class="section">
+    <div style={video_section_style}>
+      <div class="grid grid-cols-2 gap-4 detailedpage_video_container">      
+        <div class="col-span-1">
+          <div class="detailedpage_video_heading">
+            <h2>{videosection_videotitle}</h2>
+          </div>
+          <div class="detailedpage_video_description">
+            {videosection_description}
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="detailedpage_videosection">
+            <iframe width="420" height="315" src={videosection_videourl} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="detailedpage_recentnews_container">
+      <div class="detailedpage_recentnews_container">
+        <div class="detailedpage_recentnews_subheading">
+          {case_studies_subheading.toUpperCase()}          
+        </div>  
+        <div class="detailedpage_recentnews_heading">
+          <h2>{case_studies_heading}</h2>
+        </div> 
+        <div class="detailedpage_recentnews_description">
+          <p>{case_studies_description}</p>
+        </div>
+      </div>
+    </div>
+    <div class="detailedpage_casestudies_items_container">
+      <div>
+        {
+          case_studies_items.map((item:any, index:any) => (            
+            <div class="grid grid-cols-6 gap-2 detailedpage_casestudiesitem_container">                
+              <div class="col-span-6  detailedpage_casestudiesitem_subheading">
+                {item.case_study_subheading.toUpperCase()}
+              </div>
+              <div class="col-span-6 detailedpage_recentnewsitem_image">
+                <img src={item.case_study_image} />                  
+              </div> 
+              <div class="col-span-6  detailedpage_casestudiesitem_heading">
+                {item.case_study_title}
+              </div>
+              <div class="col-span-6">
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="col-span-1"/>
+                  <div class="col-span-1">
+                    <Button text={item.case_study_buttontext} href={"../casestudies/"+ item.case_study_slug} color="#505050"/>
+                  </div>
+                </div>
+              </div>                            
+            </div>            
+          ))
+        }
+      </div>  
+    </div>
+  </section>
+</div>
+
+
+

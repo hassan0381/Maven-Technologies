@@ -1,0 +1,218 @@
+{
+  
+  "industries_groupone": [
+    {
+      "name": "Construction & Real Estate",
+      "url": "/industries/construction-real-estate"
+    },
+    {
+      "name": "Education",
+      "url": "/industries/education"
+    },
+    {
+      "name": "FinTech",
+      "url": "/industries/fintech"
+    },
+    {
+      "name": "Farming & Agriculture",
+      "url": "/industries/farming-agriculture"
+    }
+    
+  ],
+  "industries_grouptwo": [        
+    {
+      "name": "Healthcare",
+      "url": "/industries/healthcare"
+    },
+    {
+      "name": "Government",
+      "url": "/industries/government"
+    },
+    {
+      "name": "Insurance",
+      "url": "/industries/insurance"
+    },
+    {
+      "name": "Manufacturing",
+      "url": "/industries/manufacturing"
+    }
+  ],
+  "industries_groupthree": [
+    {
+      "name": "Mining",
+      "url": "/industries/mining"
+    },
+    {
+      "name": "Retail & E-Commerce",
+      "url": "/industries/retail-ecommerce"
+    },
+    {
+      "name": "Transportation & Logistics",
+      "url": "/industries/transportation-logistics"
+    },
+    {
+      "name": "Start-ups & Agencies",
+      "url": "/industries/startups-agencies"
+    },
+    {
+      "name": "Utilities",
+      "url": "/industries/utilities"
+    }
+  ],
+  "services_groupone": [
+    {
+      "name": "Artificial Intelligence",
+      "url": "/services/artificial-intelligence"
+    },
+    {
+      "name": "Data Operations",
+      "url": "/services/data-operations"
+    },
+    {
+      "name": "Process Improvement & Automation",
+      "url": "/services/process-improvement-automation"
+    },
+    {
+      "name": "New Product Development",
+      "url": "/services/new-product-development"
+    },
+    {
+      "name": "Software Development",
+      "url": "/services/software-development"
+    }    
+  ],
+  "services_grouptwo": [
+    {
+      "name": "Data Insights & Analysis",
+      "url": "/services/data-insights-analysis"
+    },
+    {
+      "name": "Strategic Product Design",
+      "url": "/services/strategic-product-design"
+    },
+    {
+      "name": "Startup Value Analysis",
+      "url": "/services/startup-value-analysis"
+    },
+    {
+      "name": "Cloud Solutions and Integration",
+      "url": "/services/cloud-solutions-and-integration"
+    },
+    {
+      "name": "Web, Mobile & App Development",
+      "url": "/services/web-mobile-app-development"
+    },
+    {
+      "name": "Security",
+      "url": "/services/security"
+    }
+  ],
+  "services_groupthree": [
+    {
+      "name": "Project Management Agile delivery",
+      "url": "/services/project-management-agile-delivery"
+    },
+    {
+      "name": "Business & Product Consulting",
+      "url": "/services/business-product-consulting"
+    },
+    {
+      "name": "Ramp Up Ramp Down",
+      "url": "/services/ramp-up-ramp-down"
+    },
+    {
+      "name": "Recruitment Services",
+      "url": "/services/recruitment-services"
+    },
+    {
+      "name": "Managed Services & Support",
+      "url": "/services/managed-services-support"
+    },
+    {
+      "name": "Tailored Solutions",
+      "url": "/services/tailored-solutions"
+    }
+  ],
+  "pulse_groupone": [
+    {
+      "name": "Articles",
+      "url": "/pulse"
+    },
+    {
+      "name": "Case Studies",
+      "url": "/casestudies"
+    },
+    {
+      "name": "Insights",
+      "url": "/insights"
+    },
+    {
+      "name": "Podcasts",
+      "url": "/podcasts"
+    }
+  ],
+  "about_groupone": [
+    {
+      "name": "About Mavens",
+      "url": "/about"
+    },
+    {
+      "name": "Our Approach",
+      "url": "/our-approach"
+    },
+    {
+      "name": "Ways of Working",
+      "url": "/ways-of-working"
+    },
+    {
+      "name": "Mission & Vision",
+      "url": "/mission-and-vision"
+    }
+  ],
+  "about_grouptwo": [
+    {
+      "name": "News & Press",
+      "url": "/pulse"
+    },
+    {
+      "name": "Partnerships",
+      "url": "/partnerships"
+    },
+    {
+      "name": "Careers",
+      "url": "/careers"
+    },
+    {
+      "name": "Glossary",
+      "url": "/glossaries"
+    },
+    {
+      "name": "F.A.Q's",
+      "url": "/questions"
+    }
+  ],
+  "about_groupthree": [
+    {
+      "name": "Contact Us",
+      "url": "/contact"
+    },
+    {
+      "name": "Locations",
+      "url": "/locations"
+    },
+    {
+      "name": "Events",
+      "url": "/events"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
+    },
+    {
+      "name": "Terms of Use",
+      "url": "/terms"
+    }
+  ]
+}
+
+

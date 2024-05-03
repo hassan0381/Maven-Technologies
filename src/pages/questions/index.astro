@@ -1,0 +1,29 @@
+---
+import config from "../../config/config.json";
+import QuestionsLayout from "../../layouts/QuestionsLayout.astro";
+import MainLayout from "../../layouts/main-layout.astro";
+import { getSinglePage } from "../../lib/contentParser.astro";
+import { sortByDate, createAlphabeticalDict } from "../../lib/utils/sortFunctions";
+import { markdownify } from "../../lib/utils/textConverter";
+
+const questions = await getSinglePage("questions");
+const sortedPosts = sortByDate(questions);
+const category_name = "Knowledge Base";
+const category_url = "/questions";
+const title = "F.A.Qs";
+const banner_style = {
+    backgroundImage:
+        "url('/suite_12.jpg')",
+    minHeight: "40vh",
+    width: "100%",            
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
+const heading = "F.A.Qs";
+const sub_heading_display = "Knowledge Base";
+const value_prop = 'In a digital-focused market, learn how to "become digital," with Cognizant`s utility-based content to gain knowledge of industry-accepted, general terms related to our business.'
+---
+
+<MainLayout title={"Got a Question?"}>
+  <QuestionsLayout questions={questions}>
+</MainLayout>
