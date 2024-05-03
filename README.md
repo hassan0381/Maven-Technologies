@@ -6,7 +6,13 @@
 ---
 
 ### Deployment
-** Dev **
+**Dev**
 `npm run dev`
-** Build **
+**Build**
 `npm run build`
+
+### Things to Do
+- Update contact page
+- resolve build warnings (delete unused declarations)
+- clean up all CSS so it is standardised across the site (headings, colours, etc)
+- clean up all CSS and page layouts so it is optimised for mobile.
