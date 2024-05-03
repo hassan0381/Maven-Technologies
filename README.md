@@ -3,6 +3,7 @@
 **Confidential**
 
 © 2024 QuantalAI PTY LTD. All Rights Reserved.
+
 ---
 
 # Maven Technologies Website
