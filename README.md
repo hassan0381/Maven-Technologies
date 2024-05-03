@@ -1,8 +1,6 @@
 <img src="https://s3.ap-southeast-2.amazonaws.com/quantal.ai/quantalAI_logo_dev.png" width=225>
 
-**Confidential**
-
-© 2024 QuantalAI PTY LTD. All Rights Reserved.
+**Confidential** © 2024 QuantalAI PTY LTD. All Rights Reserved.
 
 ---
 
@@ -22,5 +20,5 @@ Astro static website with some React dynamic components. Will be deployed as a s
 - clean up all CSS so it is standardised across the site (headings, colours, etc)
 - clean up all CSS and page layouts so it is optimised for and renders properly for mobile.
 - Update contact page layout, 
-- resolve build warnings (delete unused declarations)
+- resolve build warnings and or create issues list for remainder (delete unused declarations)
 
