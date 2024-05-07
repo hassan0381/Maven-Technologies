@@ -43,7 +43,7 @@ const CapabilitiesItem = (capability: any) => {
         {toggled ? (
           <OutlineClose width="30" height="30" color="#FFFFFF" />
         ) : (
-          <ChevronDown width="20" height="20" color="#FFFFFF" />
+          <ChevronDown />
         )}
       </div>
       {toggled && (

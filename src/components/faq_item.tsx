@@ -45,7 +45,7 @@ const FAQ_Item = (item: FAQItem) => {
               {toggled ? (
                 <OutlineClose width="30" height="30" color="#505050" />
               ) : (
-                <ChevronDown width="20" height="20" color="#505050" />
+                <ChevronDown />
               )}
             </div>
           </div>
