@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ArrowPri = () => {
+const chevronUp = () => {
   return (
     <>
       <svg
@@ -13,13 +13,12 @@ export const ArrowPri = () => {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        className="lucide lucide-arrow-right"
+        className="lucide lucide-chevron-up"
       >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
+        <path d="m18 15-6-6-6 6" />
       </svg>
     </>
   );
 };
 
-export default ArrowPri;
+export default chevronUp;

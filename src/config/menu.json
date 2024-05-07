@@ -1,6 +1,5 @@
 {
-  
-  "industries_groupone": [
+  "industries": [
     {
       "name": "Construction & Real Estate",
       "url": "/industries/construction-real-estate"
@@ -16,10 +15,7 @@
     {
       "name": "Farming & Agriculture",
       "url": "/industries/farming-agriculture"
-    }
-    
-  ],
-  "industries_grouptwo": [        
+    },
     {
       "name": "Healthcare",
       "url": "/industries/healthcare"
@@ -35,9 +31,7 @@
     {
       "name": "Manufacturing",
       "url": "/industries/manufacturing"
-    }
-  ],
-  "industries_groupthree": [
+    },
     {
       "name": "Mining",
       "url": "/industries/mining"
@@ -59,7 +53,7 @@
       "url": "/industries/utilities"
     }
   ],
-  "services_groupone": [
+  "services": [
     {
       "name": "Artificial Intelligence",
       "url": "/services/artificial-intelligence"
@@ -79,9 +73,7 @@
     {
       "name": "Software Development",
       "url": "/services/software-development"
-    }    
-  ],
-  "services_grouptwo": [
+    },
     {
       "name": "Data Insights & Analysis",
       "url": "/services/data-insights-analysis"
@@ -133,7 +125,7 @@
       "url": "/services/tailored-solutions"
     }
   ],
-  "pulse_groupone": [
+  "pulse": [
     {
       "name": "Articles",
       "url": "/pulse"
@@ -151,7 +143,7 @@
       "url": "/podcasts"
     }
   ],
-  "about_groupone": [
+  "about": [
     {
       "name": "About Mavens",
       "url": "/about"
@@ -167,9 +159,7 @@
     {
       "name": "Mission & Vision",
       "url": "/mission-and-vision"
-    }
-  ],
-  "about_grouptwo": [
+    },
     {
       "name": "News & Press",
       "url": "/pulse"
@@ -189,9 +179,7 @@
     {
       "name": "F.A.Q's",
       "url": "/questions"
-    }
-  ],
-  "about_groupthree": [
+    },
     {
       "name": "Contact Us",
       "url": "/contact"
@@ -214,5 +202,3 @@
     }
   ]
 }
-
-

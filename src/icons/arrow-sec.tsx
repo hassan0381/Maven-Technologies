@@ -1,19 +1,21 @@
+import React from "react";
+
 const ArrowSec = () => {
   return (
     <svg
-      width="19"
-      height="17"
-      viewBox="0 0 19 17"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      className="lucide lucide-arrow-right"
     >
-      <path
-        d="M2 8.43536L15.7232 8.29851M10.6182 1.91132L17.1412 8.4343L10.4868 15.0887"
-        stroke="#7800ff"
-        strokeWidth="2"
-        strokeLinecap="square"
-        strokeLinejoin="round"
-      />
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
     </svg>
   );
 };

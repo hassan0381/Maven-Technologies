@@ -2,34 +2,36 @@
 import MainLayout from '../layouts/main-layout.astro'
 import Button from '../components/button.tsx'
 import ArrowSec from '../icons/arrow-sec.tsx'
-import CallIcon from "../icons/call.tsx"
-import Experience from '../components/experience.tsx'
 import '../assets/main.css'
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const services = [
 	{
 		title: 'Data Driven Decisions',
 		text: 'Empower your strategy with Data Driven Decisions, where insightful analytics transform vast information into actionable intelligence, fostering smart moves and competitive edges in a rapidly evolving marketplace.',
-		slug: '/services/data-operations'
+		slug: '/services/data-operations',
+		bgImage: "./charts_overlay_city.jpg"
 	},
 	{
 		title: 'AI/ML Integration',
 		text: 'Harness the transformative power of AI and ML integration to streamline operations, enhance decision-making, and unlock innovative potential for an agile, competitive edge in your industry.',
-		slug: '/services/artificial-intelligence'
+		slug: '/services/artificial-intelligence',
+		bgImage: "./iot_settings_rainbow.jpg"
+
 	},
 	{
 		title: 'Tailored Solutions',
 		text: 'Every organisation has unique challenges; our custom-tailored solutions adapt to your distinct needs, fostering innovation and elevating operational efficiency to new heights.',
-		slug: '/services/data-operations'
+		slug: '/services/data-operations',
+		bgImage: "./data_operations_boardroom.jpg"
+
 	},
 	{
 		title: 'Process Automation',
 		text: 'Process automation streamlines your workflows, effortlessly enhancing efficiency and reliability, while liberating your team to focus on innovation and strategic growth.',
-		slug: '/services/process-improvement-automation'
+		slug: '/services/process-improvement-automation',
+		bgImage: "./woman_virtual_dashboards.jpg"
+
 	}
 ]
 const projects = [
@@ -112,7 +114,7 @@ const featured_article_heading = 'Empowering the Future of Work with Artificial 
 const featured_article_description = 'Embark on a journey through the transformative landscape of artificial intelligence, where the lines between data and strategic insight blur into opportunities for efficiency and innovation. This narrative dives deep into the capabilities of AI, from the precision of data analysis to the foresight of time series forecasting and the clarity of predictive analytics. Envision a world where computer vision elevates every industry, and tailored AI solutions synergize with unique business visions. Far from displacing human workers, AI augments their roles, fostering a collaborative partnership that reshapes the workplace. Discover how AI serves as the crucible for enduring legacies in a modern marketplace that values intelligence, responsiveness, and the ability to harness a future bursting with untapped potential.'
 const featured_article_img = '/virtual_dashboard_laptop.jpg'
 const featured_article_slug= '/pulse/empowering-the-future-of-work-with-artificial-intelligence'
-const featured_article_subheading = 'Innovation for GenerationAI'
+const featured_article_subheading = 'Innovation for Generation AI'
 const featured_article_button_text = 'Read More'
 
 const featured_article2_heading = 'Harmonising Industry - The Predictive Maintenance Revolution'
@@ -128,169 +130,132 @@ const featured_article2_button_text = 'Read More'
 <MainLayout title = 'Maven Technologies'>
 
 	<!-- Banner -->
-	<section class="w-full bg-hero bg-no-repeat bg-cover h-screen lg:max-h-[80vh] px-12 xl:px-0 flex items-center">
-		<div class="banner_container">			
-			<h1 class="banner_heading" > Unlock productivity with solutions for the modern world.</h1>
-			<p class="banner_sub_heading font-jost">
+	<section class="bg-hero">
+		<div class="container">			
+			<div class="contentWrapper">
+				<h1 class="heading" > Unlock productivity with solutions for the modern world.</h1>
+			<p class="subHeading ">
 				Discover the business beneft of elite technologies implemented by experienced professionals.	
 			</p>
-			<Button text="Get Started" href="/services" color="#505050">
+			<a href="/service">
+			<Button text="Get Started" className='btn' href="/contact">
+			</a>
+			</div>
 		</div>
 	</section>
 
 	<!-- Value Prop -->
-	<section class="w-full h-screen lg:max-h-[50vh] px-12 xl:px-0 flex items-center ">
-		<div class="lg:max-w-[1200px] w-full mx-auto flex flex-col">			
-			<div class="value_prop font-jost">
-				
+	<section class="about">
+		<div class="container">
+			<div class="aboutDesc">
 				Maven Technologies is a technology solutions agency that help business and government navigate the ever-changing world in this GenerationAI. We implement customer focused, future proof solutions that are designed from the bottom 
-				up to ensure our customer's business are at the leading edge while maximising value and productivity. 
-				<br/><br/>
+				up to ensure our customer's business are at the leading edge while maximising value and productivity. <br><br>
 				Our elite professionals work with you and your team to ensure the solutions we provide are tailored to your business and are designed to be scalable and adaptable to the ever changing world of technology. We pride ourselves on 
 				our ability to deliver the best possible results for our customers when most only provide the bare minimum.
 			</div>
-		</div>
-	</section>
-
-	<!-- Add Featured Article Section -->
-	<section class="featured_article_main">
-		<div class="featured_article_main_container">
-			<div class="grid grid-cols-12 gap-1 featured_article_inner_container">	
-				<div class="featuredarticle_image col-span-5">
-					<img src={featured_article_img} alt={featured_article_heading}>
-				  </div>          
-				  <div class="expertisepage_featuredarticle_text col-span-7">
-					<div class="grid grid-cols-6 gap-2">
-					  <div class="col-span-6 detailedpage_solutions_subheading_inverse">
-						<p>{featured_article_subheading.toUpperCase()}</p>
-					  </div>  
-					  <div class="col-span-6 detailedpage_solutions_heading">
-						<h2>{featured_article_heading}</h2>
-					  </div>
-					  <div class="col-span-6" style={{paddingLeft:"2.5vmin", minHeight:"7.5vh"}}>
-						<p>{featured_article_description}</p>
-					  </div>					  
-					  <div class="col-span-2 featuredarticle_button">
-						<Button text={featured_article_button_text} href={".."+featured_article_slug} color="#505050"/>                
-					  </div>
-					  <div class="col-span-4"/>
-					</div>
-				  </div>				
-			</div>
-		</div>
-	</section>
-
-	<!-- Case Studies Section -->
-	<section class="section">
-		<div class="detailedpage_recentnews_container">
-		  <div class="detailedpage_recentnews_container">
-			<div class="detailedpage_recentnews_subheading">
-			  EXPERIENCE COUNTS
-			</div>  
-			<div class="detailedpage_recentnews_heading">
-			  <h2>Case Studies</h2>
-			</div> 
-			<div class="detailedpage_recentnews_description">
-				Mavens delivers modern technology solutions, designed to make our customer's business future ready while maximising value and productivity.
-			</div>
-		  </div>
-		</div>
-		<div class="detailedpage_casestudies_items_container">
-		  <div>
-			{
-			  projects.map((item:any, index:any) => (
-						  
-				<div class="grid grid-cols-6 gap-2 detailedpage_casestudiesitem_container">
-					<div class="col-span-6  detailedpage_casestudiesitem_subheading">
-						{item.case_study_subheading.toUpperCase()}
-					</div>
-					<div class="col-span-6 detailedpage_recentnewsitem_image">
-						<img src={item.case_study_image} />                  
-					</div> 
-					<div class="col-span-6  detailedpage_casestudiesitem_heading">
-						{item.case_study_title}
-					</div>
-					<div class="col-span-6">
-						<div class="grid grid-cols-2 gap-2">
-							<div class="col-span-1"/>
-							<div class="col-span-1">
-								<Button text={item.case_study_buttontext} 
-									href={"../casestudies/"+ item.case_study_slug}
-									color="#505050" />
-							</div>
-						</div>
-					</div>				  
-				</div>          
-			  ))
-			}
-		  </div>  
-		</div>
-	</section>
-
-	<!-- Add Featured Article Section -->
-	<section class="featured_article_secondary">
-		<div class="featured_article_main_container">
-			<div class="grid grid-cols-12 gap-1 featured_article_inner_container">	
-				<div class="featuredarticle_image col-span-5">
-					<img src={featured_article2_img} alt={featured_article2_heading}>
-				  </div>          
-				  <div class="expertisepage_featuredarticle_text col-span-7">
-					<div class="grid grid-cols-6 gap-2">
-					  <div class="col-span-6 detailedpage_solutions_subheading_inverse">
-						<p>{featured_article2_subheading.toUpperCase()}</p>
-					  </div>  
-					  <div class="col-span-6 detailedpage_solutions_heading">
-						<h2>{featured_article2_heading}</h2>
-					  </div>
-					  <div class="col-span-6" style={{paddingLeft:"2.5vmin", minHeight:"7.5vh"}}>
-						<p>{featured_article2_description}</p>
-					  </div>					  
-					  <div class="col-span-2 featuredarticle_button">
-						<Button text={featured_article2_button_text} href={".."+featured_article2_slug} color="#505050"/>                
-					  </div>
-					  <div class="col-span-4"/>
-					</div>
-				  </div>				
-			</div>
-		</div>
-	</section>
-
-	<section class="servicehighlight_container grid grid-cols-12 gap-4">
-		<div class="col-span-2"/>
-		{
+			<h2 class="sectionHeading">Our Services</h2>
+			<div class="serviceWrapper">
+				{
 			services.map((service) => {
 				return (
-					<div class="servicehighlight_main_container col-span-2">
-						<h3 class="servicehighlight_heading">{service.title}</h3>
-						<div class="servicehighlight_text"> {service.text}</div>
-						<a href={service.slug} class="text-text-gray-200 leading-snug text-lg tracking-tight font-jost font-semibold gap-2 py-4 md:py-8 startCenter">Read More <ArrowSec /></a>
+        <div class="serviceBox" style={{backgroundImage: `url(${service.bgImage})`}}>
+						<h3 class="heading">{service.title}</h3>
+						<p class="desc">{service.text}</p>
+						<a href={service.slug} class="btn">Read More <ArrowSec /></a>
 					</div>
 				)
 			})
+			</div>
 		}
-		<div class="col-span-2"/>
+
+		</div>
+			
 	</section>
 
-	<section class="lg:max-w-[1200px] px-12 xl:px-0 w-full mx-auto pt-[100px] lg:pt-[200px] ">
-		<div class="w-full flex flex-row justify-between items-center gap-12 max-w-[1200px] overflow-x-scroll no-scrollbar">
+	<!-- Add Featured Article Section -->
+	<section class="featuredOne">
+				<div class="leftWrapper">
+				  </div>          
+				  <div class="rightWrapper">
+						<h2 class="sectionHeading">{featured_article_subheading.toUpperCase()}</h2>
+						<h4 class="subHeading">{featured_article_heading}</h4>
+						<p class="desc">{featured_article_description}</p>
+						<Button text={featured_article_button_text} href={".."+featured_article_slug} className="btn" />                
+				  </div>				
+	</section>
+
+	<!-- Case Studies Section -->
+	<section class="caseStudies">
+		  <div class="container">
+			  <h4 class="subHeading">Experience Counts</h4>
+			  <h2 class="sectionHeading">Case Studies</h2>
+			<p class="desc">
+				Mavens delivers modern technology solutions, designed to make our customer's business future ready while maximising value and productivity.
+			</p>
+			<div class="projectWrapper">
+				{
+			  projects.map((item:any, index:any) => (
+						  
+				<div class="project">
+					<div class="imgWrapper">
+						<img src={item.case_study_image} />                  
+					</div> 
+					<h2 class="title">
+						{item.case_study_title}
+					</h2>
+					<h4 class="text">
+						{item.case_study_subheading}
+					</h4>
+						<Button text={item.case_study_buttontext} href={"../casestudies/"+ item.case_study_slug}
+						className='btn' />			  
+				</div>          
+			  ))
+			}
+			</div>
+		</div>
+	</section>
+
+	<!-- Add Featured Article Section -->
+	<section class="featuredTwo">
+		<div class="container">
+			<div class="gridWrapper">
+				<div class="article">
+						<h2 class="sectionHeading">{featured_article2_subheading.toUpperCase()}</h2>
+						<h4 class="subHeading">{featured_article2_heading}</h4>
+						<p class="desc">{featured_article2_description}</p>
+						<Button className="btn" text={featured_article2_button_text} href={".."+featured_article2_slug}/>                
+				  </div>	
+				<div class="featuredImg">
+					<img src={featured_article2_img} alt={featured_article2_heading}>
+				  </div>          
+				  				
+			</div>
+		</div>
+	</section>
+
+	<section class="partners">
+		<div class="container">
+			<div class="sectionHeading">Our Partners</div>
+			<div class="row rowOne">
 			{
-				partnerLogos1.map(logo => <img class="partner_logo" src={logo.img} alt="" />)
+				partnerLogos1.map(logo => <div class="logoWrapper"><img class="logo" src={logo.img} alt="" /></div>)
 			}
 		</div>
-		<div class="w-full flex flex-row justify-between items-center gap-12 max-w-[1200px] overflow-x-scroll no-scrollbar">
+		<div class="row rowTwo">
 			{
-				partnerLogos2.map(logo => <img class="partner_logo" src={logo.img} alt="" />)
+				partnerLogos2.map(logo => <div class="logoWrapper"><img class="logo" src={logo.img} alt="" /></div>)
 			}
 		</div>
-		<div class="w-full flex flex-row justify-between items-center gap-12 max-w-[1200px] overflow-x-scroll no-scrollbar">
+		<div class="row rowOne">
 			{
-				partnerLogos3.map(logo => <img class="partner_logo" src={logo.img} alt="" />)
+				partnerLogos3.map(logo => <div class="logoWrapper"><img class="logo" src={logo.img} alt="" /></div>)
 			}
 		</div>
-		<div class="w-full flex flex-row justify-between items-center gap-12 max-w-[1200px] overflow-x-scroll no-scrollbar">
+		<div class="row rowTwo">
 			{
-				partnerLogos4.map(logo => <img class="partner_logo" src={logo.img} alt="" />)
+				partnerLogos4.map(logo => <div class="logoWrapper"><img class="logo" src={logo.img} alt="" /></div>)
 			}
+		</div>
 		</div>
 	</section>
 </MainLayout>
