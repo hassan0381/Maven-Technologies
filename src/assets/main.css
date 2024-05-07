@@ -1136,6 +1136,7 @@
 
 .bg-hero .contentWrapper {
   position: relative;
+
   z-index: 2;
   max-width: 680px;
 }
