@@ -14,7 +14,7 @@ const NavTop = () => {
       <div className="topNav">
         <div className="container">
           <div className="mainWrapper">
-            <div className="left">
+            {/* <div className="left">
               <div className="email">
                 <Envelope />
                 <a href="mailto:hello@workwithmavens.io">
@@ -25,7 +25,7 @@ const NavTop = () => {
                 <Phone />
                 <a href="tel:1300 440 275">1300 440 275</a>
               </div>
-            </div>
+            </div> */}
             <nav className="flex nav">
               {matches && (
                 <>

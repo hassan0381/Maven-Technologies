@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import ChevronDown from "../icons/chevronDown.jsx";
-import ChevronUp from "../icons/chevronUp.jsx";
+import ChevronDown from "../icons/chevronDown.tsx";
+import ChevronUp from "../icons/chevronUp.tsx";
+import Cross from "../icons/cross.tsx";
+import Hamburger from "../icons/hamburger.tsx";
 import Logo from "../icons/logo.tsx";
 import useMediaQuery from "../utils/useMediaQuery.ts";
 import menu from "../config/menu.json";
@@ -164,32 +166,103 @@ const Navbar = () => {
             <Button className="btn" text="Contact Us" href="/contact" />
 
             {toggled && !matches && (
-              <div className="">
-                <a href="/industries" className="link">
-                  Industries
-                </a>
-                <a href="/services" className="link">
-                  Services
-                </a>
-                <a href="/pulse" className="link">
-                  Pulse
-                </a>
-                <a href="/about" className="link">
-                  About
-                </a>
+              <div className="mobileNav">
+                <nav className="navbar">
+                  <div className="cross" onClick={() => setToggled(!toggled)}>
+                    <Cross />
+                  </div>
+                  <div
+                    className={navlinksIndustries ? "link linkActive" : "link"}
+                    onClick={() => menuClicked("industries")}
+                  >
+                    <div className="">Industries</div>
+                    {navlinksIndustries ? <ChevronUp /> : <ChevronDown />}
+                    {navlinksIndustries && (
+                      <div className="linkDropdown">
+                        <ul>
+                          {menu.industries.map((item: any, index: any) => {
+                            return (
+                              <li key={index}>
+                                <NavLink nav_item={item} />
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                  <div
+                    className={navlinksServices ? "link linkActive" : "link"}
+                    onClick={() => menuClicked("services")}
+                  >
+                    <div className="">Services</div>
+                    {navlinksServices ? <ChevronUp /> : <ChevronDown />}
+                    {navlinksServices && (
+                      <div className="linkDropdown">
+                        <ul>
+                          {menu?.services?.map((item: any, index: any) => {
+                            return (
+                              <li key={index}>
+                                <NavLink nav_item={item} />
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                  <div
+                    className={navlinksPulse ? "link linkActive" : "link"}
+                    onClick={() => menuClicked("pulse")}
+                  >
+                    <div className="">Pulse</div>
+                    {navlinksPulse ? <ChevronUp /> : <ChevronDown />}
+                    {navlinksPulse && (
+                      <div className="linkDropdown">
+                        <ul>
+                          {menu?.pulse?.map((item: any, index: any) => {
+                            return (
+                              <li key={index}>
+                                <NavLink nav_item={item} />
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                  <div
+                    className={navlinksAbout ? "link linkActive" : "link"}
+                    onClick={() => menuClicked("about")}
+                  >
+                    <div className="">About</div>
+                    {navlinksAbout ? <ChevronUp /> : <ChevronDown />}
+                    {navlinksAbout && (
+                      <div className="linkDropdown">
+                        <ul>
+                          {menu?.about?.map((item: any, index: any) => {
+                            return (
+                              <li key={index}>
+                                <NavLink nav_item={item} />
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </nav>
               </div>
             )}
 
-            {/* {!matches && (
+            {!matches && (
               <div
                 onClick={() => setToggled(!toggled)}
-                className="space-y-1 cursor-pointer"
+                className="cursor-pointer"
               >
-                <span className="block h-0.5 w-8 bg-black"></span>
-                <span className="block h-0.5 w-6 bg-black"></span>
-                <span className="block h-0.5 w-4 bg-black"></span>
+                <Hamburger />
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </div>
