@@ -163,6 +163,23 @@ const Navbar = () => {
 
             <Button className="btn" text="Contact Us" href="/contact" />
 
+            {toggled && !matches && (
+              <div className="">
+                <a href="/industries" className="link">
+                  Industries
+                </a>
+                <a href="/services" className="link">
+                  Services
+                </a>
+                <a href="/pulse" className="link">
+                  Pulse
+                </a>
+                <a href="/about" className="link">
+                  About
+                </a>
+              </div>
+            )}
+
             {/* {!matches && (
               <div
                 onClick={() => setToggled(!toggled)}

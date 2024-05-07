@@ -17,7 +17,6 @@ const Button = (props: ButtonProps) => {
     text = "Default Text",
     type = "button",
     href = "/",
-    color = "#505050",
     className = "",
   } = props;
 

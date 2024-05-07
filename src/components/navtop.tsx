@@ -9,7 +9,6 @@ const NavTop = () => {
   const [toggled, setToggled] = useState(false);
   const matches = useMediaQuery("(min-width: 1280px)");
 
-  const linkStyle = "text-m leading-6 font-jost text-primary-200";
   return (
     <>
       <div className="topNav">
