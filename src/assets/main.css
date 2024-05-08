@@ -1259,7 +1259,8 @@
 }
 
 .serviceWrapper .serviceBox .heading {
-  color: #000;
+  color: #fff;
+  text-shadow: 1px 1px #000;
   font-size: 28px;
   transition: all 0.2s ease;
   font-family: var(--bebas-neue);
@@ -1269,7 +1270,8 @@
 }
 
 .serviceWrapper .serviceBox .desc {
-  color: #000;
+  color: #fff;
+  text-shadow: 1px 1px #000;
   font-size: 14px;
   position: relative;
   z-index: 2;
@@ -1283,6 +1285,10 @@
   font-family: var(--poppins);
 }
 
+.serviceWrapper .serviceBox:hover .desc {
+  text-shadow: none;
+}
+
 .serviceWrapper .serviceBox:hover .btn {
   background-color: #fff;
   color: var(--primarColor);
@@ -1292,14 +1298,16 @@
 .serviceWrapper .serviceBox .btn {
   max-width: 120px;
   height: 43px;
-  border-color: #000;
-  color: #000;
   margin-top: 40px;
   font-size: 14px;
   transition: all 0.3s ease;
 }
 
 .serviceWrapper .serviceBox .btn svg path {
+  stroke: #fff;
+}
+
+.serviceWrapper .serviceBox:hover .btn svg path {
   stroke: var(--primarColor);
 }
 
@@ -1308,7 +1316,7 @@
   color: #fff;
 }
 .serviceWrapper .serviceBox:hover::before {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .serviceWrapper .serviceBox::before {
@@ -1318,7 +1326,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
