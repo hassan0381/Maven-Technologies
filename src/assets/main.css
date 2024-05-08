@@ -1250,11 +1250,18 @@
   height: 350px;
   position: relative;
   padding: 40px 25px;
+  border: 1px solid #111;
+  border-left: 0;
+}
+
+.serviceWrapper .serviceBox:first-child {
+  border-left: 1px solid #111;
 }
 
 .serviceWrapper .serviceBox .heading {
-  color: #fff;
+  color: #000;
   font-size: 28px;
+  transition: all 0.2s ease;
   font-family: var(--bebas-neue);
   position: relative;
   z-index: 2;
@@ -1262,11 +1269,11 @@
 }
 
 .serviceWrapper .serviceBox .desc {
-  color: #fff;
+  color: #000;
   font-size: 14px;
   position: relative;
   z-index: 2;
-  font-weight: 300;
+  transition: all 0.2s ease;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
@@ -1279,22 +1286,29 @@
 .serviceWrapper .serviceBox:hover .btn {
   background-color: #fff;
   color: var(--primarColor);
-}
-
-.serviceWrapper .serviceBox:hover .btn svg path {
-  stroke: var(--primarColor);
+  border: 1px solid transparent;
 }
 
 .serviceWrapper .serviceBox .btn {
   max-width: 120px;
   height: 43px;
+  border-color: #000;
+  color: #000;
   margin-top: 40px;
   font-size: 14px;
   transition: all 0.3s ease;
 }
 
+.serviceWrapper .serviceBox .btn svg path {
+  stroke: var(--primarColor);
+}
+
+.serviceWrapper .serviceBox:hover .heading,
+.serviceWrapper .serviceBox:hover .desc {
+  color: #fff;
+}
 .serviceWrapper .serviceBox:hover::before {
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .serviceWrapper .serviceBox::before {
@@ -1304,7 +1318,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: #fff;
   transition: all 0.3s ease;
 }
 
@@ -1743,6 +1757,11 @@
 @media only screen and (max-width: 576px) {
   .footer .grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .serviceWrapper .serviceBox {
+    border: 1px solid #000;
+    border-left: 1px solid #000;
   }
 
   .container {
