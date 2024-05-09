@@ -13,10 +13,11 @@ const cross = () => {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        className="lucide lucide-x"
+        className="lucide lucide-circle-x"
       >
-        <path d="M18 6 6 18" />
-        <path d="m6 6 12 12" />
+        <circle cx="12" cy="12" r="10" />
+        <path d="m15 9-6 6" />
+        <path d="m9 9 6 6" />
       </svg>
     </>
   );

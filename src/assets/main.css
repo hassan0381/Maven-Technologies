@@ -292,29 +292,24 @@
 
 .detailedpage_banner_topper {
   width: 100%;
-  height: 8vh;
-  padding: 1.5vmin;
-  background-color: #7800ff;
-  justify-content: center;
-  align-items: center;
+  background-color: #ddd;
+  padding: 12px 0px;
 }
+.detailedpage_banner_topper .wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
 .detailedpage_banner_topper_categoryheading {
-  margin-left: auto;
-  margin-right: auto;
-  width: 60vw;
-  font-family: "ProximaSoft", sans-serif;
-  font-size: 1.75vmin;
-  font-weight: 200;
-  color: #d3acff;
+  font-family: var(--roboto-condensed);
+  color: #000;
+  text-transform: capitalize;
 }
 .detailedpage_banner_topper_mainheading {
-  margin-left: auto;
-  margin-right: auto;
-  width: 60vw;
-  font-family: "ProximaSoft", sans-serif;
-  font-size: 2vmin;
-  font-weight: 400;
-  color: #ffffff;
+  color: #000;
+  font-family: var(--roboto-condensed);
+  text-transform: capitalize;
 }
 .detailedpage_banner_heading_container {
   margin-left: auto;
@@ -445,19 +440,17 @@
 }
 .detailedpage_expertiseitem_heading {
   width: 30%;
-  font-size: 2.25vmin;
+  font-family: var(--roboto-condensed);
   font-weight: 400;
-  justify-content: center;
   color: #ffffff;
-  padding: 2.5vmin;
+  padding: 12px 20px;
   border-right: 1px solid #ffffff;
 }
 .detailedpage_expertiseitem_description {
-  width: 65%;
-  font-size: 2.25vmin;
   font-weight: 400;
+  font-family: var(--roboto-condensed);
   color: #ffffff;
-  padding: 2.5vmin;
+  flex: 1;
 }
 .detailedpage_expertiseitem_arrow {
   padding-top: 4vmin;
@@ -1131,6 +1124,38 @@
   position: relative;
 }
 
+.videoSection .gridWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 50px;
+}
+
+.videoSection .heading {
+  color: #000;
+  font-size: 40px;
+  font-weight: 600;
+  max-width: 80%;
+  line-height: 1.2;
+  font-family: var(--bebas-neue);
+}
+
+.videoSection .desc {
+  color: #000;
+  font-family: var(--roboto-condensed);
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.videoSection iframe {
+  width: 100%;
+  height: 400px;
+}
+
+.contactUs {
+  background: url("./contact-us.jpg");
+  margin-bottom: 100px;
+}
+
 .bg-hero .contentWrapper {
   position: relative;
 
@@ -1301,6 +1326,10 @@
 
 .serviceWrapper .serviceBox .btn svg path {
   stroke: var(--primarColor);
+}
+
+.mb-100 {
+  margin-bottom: 100px;
 }
 
 .serviceWrapper .serviceBox:hover .btn svg path {
@@ -1578,7 +1607,7 @@
   font-weight: 300;
 }
 .footer .getInTouch {
-  padding: 100px 0px;
+  padding-bottom: 100px;
 }
 
 .footer .grid {
@@ -1609,6 +1638,17 @@
   align-items: center;
   column-gap: 10px;
   padding-top: 25px;
+}
+
+.expertiseWrapper {
+  display: flex;
+  width: 70%;
+  padding: 12px 20px;
+  align-items: center;
+}
+
+.expertiseWrapper svg path {
+  stroke: #fff;
 }
 
 .getInTouch .socialWrapper a {
@@ -1759,11 +1799,6 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .serviceWrapper .serviceBox {
-    border: 1px solid #000;
-    border-left: 1px solid #000;
-  }
-
   .container {
     padding-inline: 20px;
   }
@@ -1833,7 +1868,6 @@
   }
 
   .serviceWrapper .serviceBox {
-    height: 320px;
     padding: 40px 20px;
   }
 
@@ -1876,26 +1910,39 @@
   .mobileNav {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 280px;
     height: 100%;
     background-color: #fff;
     z-index: 9;
-    padding: 30px 20px;
+    padding: 25px 20px;
     min-height: 100vh;
     overflow-y: auto;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .header .navbar .link {
+    border-bottom: 1px solid #f3f3f3;
+    width: 100%;
+    padding: 10px 0px;
   }
 
   .header .navbar .linkDropdown {
     padding: 0;
-    max-width: 300px;
+    max-width: 100%;
     box-shadow: none;
     top: 40px;
   }
 
+  .header .navbar .linkDropdown ul {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+  }
+
   .header .navbar {
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
     align-items: flex-start;
   }
 
@@ -1913,9 +1960,39 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    padding-bottom: 15px;
   }
 
   .topNav {
     display: none;
+  }
+  .videoSection .gridWrapper {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 30px;
+  }
+
+  .videoSection .heading {
+    max-width: 100%;
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .detailedpage_expertiseitem_heading {
+    border-right: none;
+    width: 100%;
+  }
+
+  .detailedpage_expertiseitem_container {
+    flex-wrap: wrap;
+  }
+
+  .videoSection iframe {
+    height: 190px;
+  }
+
+  .expertiseWrapper {
+    width: 100%;
+    column-gap: 20px;
+    align-items: flex-start;
   }
 }
