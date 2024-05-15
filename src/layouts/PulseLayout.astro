@@ -1,7 +1,6 @@
 ---
 import { markdownify } from "../lib/utils/textConverter";
 import Button from '../components/button.tsx'
-import "../assets/main.css";
 import ChevronRight from "../icons/chevronRight.tsx"
 
 
@@ -50,7 +49,7 @@ const case_studies_items = [
 ]
 const heading = "Maven Technologies Articles"
 const sub_heading_display = "IN THE KNOW"
-const banner_style = {
+const banner_img = {
     backgroundImage:
         "url(/data-center-providing-cloud-services-banner.jpg)",
 };
@@ -64,7 +63,7 @@ const { pulses } = Astro.props;
     <div class="container">
       <div class="wrapper">
         <div class="detailedpage_banner_topper_categoryheading">
-      <a href="/insights">Insights</a>
+      <p>Pulse</p>
     </div>
     <ChevronRight />
 
@@ -74,7 +73,7 @@ const { pulses } = Astro.props;
       </div>
     </div>
   </section>
-  <section class="bg-hero" style={banner_style}>   
+  <section class="bg-hero" style={banner_img}>   
     <div class="container">
       <div class="contentWrapper">
           <p class="subHeading">{sub_heading_display}</p>
@@ -89,9 +88,9 @@ const { pulses } = Astro.props;
         {
           pulses.map((item:any, index:any) => (
               <div class="project">
-            <a href={"insights/"+ item.data.related_article_slug}>
+            <a href={"pulse/"+ item.slug}>
                 <div class="imgWrapper">
-                  <img src={item.data.heroimage} />                  
+                  <img src={item.data?.heroimage} />                  
                 </div>  
                  <h2 class="title">
                   {item.data.heading}
@@ -99,7 +98,7 @@ const { pulses } = Astro.props;
                 <h4 class="text">
                   {item.data.category}
                 </h4>                                        
-                <Button className="btn" text={item.data.buttontext} href={"../pulse/"+item.slug} />   
+                <Button className="btn" text="Read Pulse" href={"../pulse/"+item.slug} />   
             </a>
               </div>
 

@@ -3,24 +3,21 @@ import { markdownify } from "../lib/utils/textConverter";
 const { glossaries, alphabeticalDict } = Astro.props;
 const glossary_keys = Object.entries(alphabeticalDict).map(([k,v]) => `${k}`);
 ---
-<div class="glossarypage_container">
-  <div class="grid grid-cols-3 gap-4" >
-  {
-    glossary_keys.map((glossary_key: string) => (
-    <div class="col-span-1 glossarypage_category_container">       
-        <h2>
+  <div class="mainGrid">
+  {glossary_keys.map((glossary_key: string) => (
+       <div class="glossaryBox">
+        <h2 class="glossaryLetter">
           {glossary_key}
         </h2>
-        <div class="grid grid-cols-1 gap-4 glossarypage_category_item">
+       
+        <div class="glossaryWrapper">
         {
           alphabeticalDict[glossary_key].map((glossary: any) => (
-            <div class="col-span-1">        
-              <h3 class="h4 mt-8 mb-3">
-                <a href={`/glossaries/${glossary.slug}`} class="block hover:text-primary transition duration-200">
+                <div>
+                  <a href={`/glossaries/${glossary.slug}`} class="">
                   {glossary.data.name}
                 </a>
-              </h3>        
-            </div>
+                </div>
           ))
         }
         </div>
@@ -28,4 +25,3 @@ const glossary_keys = Object.entries(alphabeticalDict).map(([k,v]) => `${k}`);
     ))
   }
   </div>
-</div>

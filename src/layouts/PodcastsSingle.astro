@@ -1,6 +1,6 @@
 ---
 import FAQ_Item from "../components/faq_item";
-import "../assets/main.css";
+import ChevronRight from "../icons/chevronRight.tsx"
 
 
 const { podcast } = Astro.props;
@@ -13,102 +13,67 @@ const {id, category, sub_category, name, description, key_words,
 
 
 const { Content } = await podcast.render();
-const banner_style = {
+const banner_img = {
     backgroundImage:
         "url('"+heroimage+"')",
-    minHeight: "35vh",
-    width: "100%",            
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
 };
 
 const category_url = "/"+category;
 const category_name =category[0].toUpperCase()+category.slice(1);
-const sub_heading_display = sub_category ? sub_category.toUpperCase().replaceAll("-"," ") : "Pulse of the Industry";
+const sub_heading_display = sub_category ? sub_category.replaceAll("-"," ") : "Pulse of the Industry";
 ---
 
-<section class="section">  
-  <div class="detailedpage_banner_topper">    
-    <div class="detailedpage_banner_topper_categoryheading">
-      <a href={category_url}>{category_name}</a>
-    </div>
-    <div class="detailedpage_banner_topper_mainheading">
-      <p>{sub_heading_display}</p>
-    </div>
-  </div>
-  <div style={banner_style} >
-    <div class="grid grid-cols-12 gap-4">
-      <div class="col-span-1"/>
-      <div class="col-span-10">
-        <div class="detailedpage_banner_heading_container">
-          <div class="detailedpage_banner_headingbackground">
-            <div class="detailedpage_banner_subheading">
-              <p>{sub_heading_display}</p>
-            </div>
-            <div class="detailedpage_banner_heading">
-              <h1>{heading}</h1>
-            </div>
-          </div>
+ <section class="detailedpage_banner_topper">    
+    <div class="container">
+      <div class="wrapper">
+        <div class="detailedpage_banner_topper_categoryheading">
+          <a href={category_url}>{category_name}</a>    
+        </div>
+        <ChevronRight />
+        <div class="detailedpage_banner_topper_mainheading">
+          <p>{sub_heading_display}</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="section">
-  <!-- <div class="detailedpage_valueprop">    
-      <p>{value_prop}</p>    
-  </div> -->
-  <div class="content mb-16 text-left">
-    <div class="grid grid-cols-12 gap-4">
-      <div class="col-span-2"/>
-      <div class="col-span-6">
-        <Content />          
-      </div>
-      <div class="col-span-4">
-        <div class="grid grid-cols-6 gap-4">          
-          <div class="col-span-6 faqspage_itemscontainer" >
-            <div class="detailedpage_content_sidebar">          
-              <ul>
-                <li>
-                  <div class="detailedpage_content_sidebar_item">                
-                    <h3>{highlight1_heading}</h3>
-                    <p>{highlight1_description}</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="detailedpage_content_sidebar_item">                
-                    <h3>{highlight2_heading}</h3>
-                    <p>{highlight2_description}</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="detailedpage_content_sidebar_item">                
-                    <h3>{highlight3_heading}</h3>
-                    <p>{highlight3_description}</p>
-                  </div>
-                </li>
-              </ul>          
-            </div>
-          </div>          
-          <div class="col-span-6 faqspage_itemscontainer">
-            {
-            faqs.map((item:any, index:any) => (
-              <FAQ_Item 
-                client:load
-                question={item.question} 
-                sub_title={item.sub_title} 
-                short_answer={item.answer} 
-                long_answer={item.answer} 
-                slug={item.slug} 
-                image={item.image} />
-            ))
-            }
-        
-          </div>
-        </div>
-      </div>
-    </div>
+  </section>
 
+  <section class="bg-hero" style={banner_img}>   
+    <div class="container">
+      <div class="contentWrapper">
+          <p class="subHeading">{sub_heading_display}</p>
+          <h1 class="heading">{heading}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="articles">
+  <div class="container">
+    <div class="contentWrapper">          
+        <Content />          
+        <ul>
+          <li>
+              <h3>{highlight1_heading}</h3>
+              <p>{highlight1_description}</p>
+          </li>
+          <li>
+              <h3>{highlight2_heading}</h3>
+              <p>{highlight2_description}</p>
+          </li>
+          <li>
+              <h3>{highlight3_heading}</h3>
+              <p>{highlight3_description}</p>
+          </li>
+        </ul>          
+      </div>
+         
+      {faqs.map((item:any, index:any) => (
+        <FAQ_Item 
+          client:load
+          question={item.question_title} 
+          long_answer={item.question_answer}  />
+        ))
+      }
   </div>
 </section>
 
