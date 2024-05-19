@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import OutlineClose from "../icons/outline-close";
 import ChevronDown from "../icons/chevronDown.jsx";
 import useMediaQuery from "../utils/useMediaQuery.ts";
-import { motion } from "framer-motion";
-import type { Props } from "astro";
 const expertise_table_colours = [
   "#7800ff",
   "#8c2bfa",
