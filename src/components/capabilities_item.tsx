@@ -1,52 +1,25 @@
 import React, { useState } from "react";
-// import * as React from "react"
-import OutlineClose from "../icons/outline-close";
-import ChevronDown from "../icons/chevronDown.jsx";
-import useMediaQuery from "../utils/useMediaQuery.ts";
-const expertise_table_colours = [
-  "#7800ff",
-  "#8c2bfa",
-  "#a14ffe",
-  "#b679fb",
-  "#d3acff",
-];
+
+import ChevronDown from "../icons/chevronDown.tsx";
+import ChevronUp from "../icons/chevronUp.tsx";
 
 const CapabilitiesItem = (capability: any) => {
   const [toggled, setToggled] = useState(false);
-  const matches = useMediaQuery("(min-width: 1280px)");
-  const expertise_table_colours = [
-    "#7800ff",
-    "#8c2bfa",
-    "#a14ffe",
-    "#b679fb",
-    "#d3acff",
-  ];
-  const buttonClicked = () => {
+  const handleToggle = () => {
     setToggled(!toggled);
   };
-  // console.log(capability)
   return (
     <div
-      onClick={buttonClicked}
-      className="grid grid-cols-12 gap-4"
-      style={{
-        backgroundColor: expertise_table_colours[capability.indx],
-        cursor: "pointer",
-      }}
+      className={`faq ${toggled ? "faqOpen" : "faqClose"}`}
+      onClick={() => handleToggle()}
     >
-      <div className="col-span-11 expertisepage_capabilitiesitem_heading">
-        <p>{capability.heading}</p>
-      </div>
-      <div className="col-span-1 detailedpage_expertiseitem_arrow">
-        {toggled ? (
-          <OutlineClose width="30" height="30" color="#FFFFFF" />
-        ) : (
-          <ChevronDown />
-        )}
+      <div className="question">
+        <div className="heading">{capability.heading}</div>
+        {toggled ? <ChevronUp /> : <ChevronDown />}
       </div>
       {toggled && (
-        <div className="col-span-12 expertisepage_capabilitiesitem_description">
-          <p>{capability.content}</p>
+        <div className="answerBox">
+          <div className="answer">{capability.content}</div>
         </div>
       )}
     </div>
